@@ -17,6 +17,9 @@ $container["db"] = function ($container) use ($capsule) {
 $container["flash"] = function () {
 	return new Slim\Flash\Messages();
 };
+$container["auth"] = function ($container) {
+	return new App\Auth\Auth($container);
+};
 
 // view
 $container["view"] = function ($container) use ($app) {
@@ -32,6 +35,11 @@ $container["view"] = function ($container) use ($app) {
 
 	// flash msgs
 	$view->getEnvironment()->addGlobal("flash", $container->flash->getMessages());
+
+	$view->getEnvironment()->addGlobal("auth", [
+		"state" => $container->auth->loginState(),
+		"user" => $container->auth->user()
+	]);
 
 
 	return $view;

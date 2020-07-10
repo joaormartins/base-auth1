@@ -11,11 +11,33 @@
         </div>
 
         <div id="menu" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li>
-                    <a href="{{ path_for('home') }}">Home</a>
+            <ul class="nav navbar-nav navbar-right">
+                {% if auth.state %}
+
+                <li class="dropdown">
+                    <a id="user_drop" href="#" data-toggle="dropdown">
+                        Usuario
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" aria-labellyed="user_drop">
+                        {% if auth.user.admin %}
+                        <li>
+                            <a href="#">Gerenciar Usuarios</a>
+                        </li>
+                        {% endif %}
+                        <li>
+                            <a href="#">Logout</a>
+                        </li>
+                    </ul>
                 </li>
+                {% else %}
+                
+                <li>
+                    <a href="#">Inicar Sessao</a>
+                </li>
+                {% endif %}
             </ul>
+            
         </div>
 	</div>
 </nav>
