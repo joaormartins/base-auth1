@@ -5,7 +5,7 @@ class BaseController extends Controller {
 
 	public function home($request, $response)
 	{
-		return $this->view->render($response, "admin/users.twig");
+		return $this->view->render($response, "home.twig");
 	}
 
 

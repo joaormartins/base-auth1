@@ -25,24 +25,29 @@
 		</form>
 	</div>
 	<div class="col-md-8">
-		<h4>Usuarios:</h4>
+		<h4>Usuários:</h4>
 		<table class="table table-bordered">
 			<thead>
 				<tr>
+					<th>#</th>
 					<th>Nome</th>
 					<th>Usuário</th>
 					<th>Email</th>
+					<th>Tipo</th>
 					<th>Editar</th>
 					<th>Excluir</th>
 				</tr>
 			</thead>
 			<tbody>
+				{% for user in users %}
 				<tr>
-					<td>Joao Reis Martins</td>
-					<td>joaomartins</td>
+					<td>{{ user.id }}</td>
+					<td>{{ user.nome }}</td>
+					<td>{{ user.usuario }}</td>
 					<td>
-						<a href="#">joaodrmjr@gmail.com</a>
+						<a href="#">{{ user.email }}</a>
 					</td>
+					<td>{{ auth.user.admin ? 'Admin' : 'User' }}</td>
 					<td>
 						<a class="btn btn-warning" href="#"><i class="fa fa-edit"></i></a>
 					</td>
@@ -50,6 +55,7 @@
 						<a class="btn btn-danger" href="#"><i class="fa fa-trash"></i></a>
 					</td>
 				</tr>
+				{% endfor %}
 			</tbody>
 		</table>
 	</div>
