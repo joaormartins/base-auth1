@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 10-Jul-2020 às 18:44
+-- Generation Time: 10-Jul-2020 às 20:28
 -- Versão do servidor: 5.7.23
 -- versão do PHP: 7.2.10
 
@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `usuarios`

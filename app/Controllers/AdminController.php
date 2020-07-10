@@ -18,7 +18,15 @@ class AdminController extends Controller {
 
 	public function addUser($request, $response)
 	{
-		var_dump("salvando usuario");
+		$pass = $this->auth->saveUser($request->getParams());
+
+		if ($pass) {
+			$this->flash->addMessage("success", "Usuario inserido com sucesso :)");
+		}else {
+
+			$this->flash->addMessage("error", $this->auth->error);
+		}
+		return $response->withRedirect($this->router->pathFor("admin.users"));
 	}
 
 }

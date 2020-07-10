@@ -5,6 +5,10 @@ use App\Models\User;
 
 class Auth {
 
+	// validacoes em usuario
+	use UserValidations;
+	
+
 	const NONE = 0;
 	const LOGGED = 1;
 	const ADMIN = 2;
