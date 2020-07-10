@@ -5,7 +5,7 @@ class BaseController extends Controller {
 
 	public function home($request, $response)
 	{
-		return $this->view->render($response, "home.twig");
+		return $this->view->render($response, "admin/users.twig");
 	}
 
 
@@ -17,8 +17,8 @@ class BaseController extends Controller {
 	public function postLogin($request, $response)
 	{
 		$pass = $this->auth->loginAttemp([
-			"usuario" => $request->getParam("usuario"),
-			"password" => $request->getParam("password")
+			"username" => $request->getParam("usuario"),
+			"password" => $request->getParam("senha")
 		]);
 
 		if (!$pass) {

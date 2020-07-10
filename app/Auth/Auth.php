@@ -39,10 +39,10 @@ class Auth {
 
 	public function loginAttemp(array $params): bool
 	{
-		$username = $params["usuario"];
-		$passwd = $params["password"];
+		$username = $params["username"];
+		$password = $params["password"];
 
-		if (empty($username) || empty($passwd)) {
+		if (empty($username) || empty($password)) {
 			$this->error = "Preencha todos os campos!";
 			return false;
 		}
@@ -52,7 +52,7 @@ class Auth {
 			return false;
 		}
 
-		if (!password_verify($passwd, $user->password)) {
+		if (!password_verify($password, $user->senha)) {
 			$this->error = "A senha inserida esta incorreta!";
 			return false;
 		}
