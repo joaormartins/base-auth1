@@ -30,4 +30,11 @@ class BaseController extends Controller {
 		return $response->withRedirect($this->router->pathFor("home"));
 	}
 
+	public function logout($request, $response)
+	{
+		$this->flash->addMessage("info", "Sessao encerrada com sucesso");
+		$this->auth->logout();
+		return $response->withRedirect($this->router->pathFor("auth.login"));
+	}
+
 }

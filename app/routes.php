@@ -8,3 +8,9 @@ $app->group("/auth", function ($container) use ($app) {
 	$app->post("/login", "BaseController:postLogin");
 
 });
+
+$app->group("/user", function ($container) use ($app) {
+
+
+	$app->get("/logout", "BaseController:logout")->setName("auth.logout");
+});

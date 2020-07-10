@@ -69,6 +69,13 @@ class Auth {
 		$this->state = $user->admin ? self::ADMIN : self::LOGGED;
 		$this->user = $user;
 	}
+
+	public function logout()
+	{
+		unset($_SESSION[$this->config["session"]]);
+		$this->state = self::NONE;
+		$this->user = null;
+	}
 	
 	public function loginState(): int
 	{
