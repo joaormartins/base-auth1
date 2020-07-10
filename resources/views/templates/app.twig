@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- metas -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- bootstrap css CDN -->
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- //- -->
+	<link rel="stylesheet" type="text/css" href="{{ base_url() }}/css/app.css">
+
+	<title>Relatorio de Viagens CMRPM</title>
+</head>
+<body>
+
+{% include 'templates/partials/navigation.twig' %}
+
+
+<div class="container">
+
+    <div class="flash">
+        {% include 'templates/partials/flash.twig' %}
+    </div>
+
+	{% block content %}{% endblock %}
+</div>
+
+<!-- jquery -->
+<script src="{{ base_url() }}/js/jquery.min.js"></script>
+<!-- bootstrap script CDN -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+{% block scripts %}{% endblock %}
+
+
+</body>
+</html>
