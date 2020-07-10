@@ -1,6 +1,7 @@
 <?php
 namespace App\Auth;
 
+use App\Models\User;
 
 class Auth {
 
@@ -36,6 +37,38 @@ class Auth {
 		$this->state = self::NONE;
 	}
 
+	public function loginAttemp(array $params): bool
+	{
+		$username = $params["usuario"];
+		$passwd = $params["password"];
+
+		if (empty($username) || empty($passwd)) {
+			$this->error = "Preencha todos os campos!";
+			return false;
+		}
+
+		if (!$user = User::where("usuario", $username)->first()) {
+			$this->error = "Usuario nao encontrado";
+			return false;
+		}
+
+		if (!password_verify($passwd, $user->password)) {
+			$this->error = "A senha inserida esta incorreta!";
+			return false;
+		}
+
+		// logar usuario
+		$this->login($user);
+
+		return true;
+	}
+
+	public function login(User $user)
+	{
+		$_SESSION[$this->config["session"]] = $user->id;
+		$this->state = $user->admin ? self::ADMIN : self::LOGGED;
+		$this->user = $user;
+	}
 	
 	public function loginState(): int
 	{
