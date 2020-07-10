@@ -14,10 +14,6 @@
 				<input type="text" name="usuario" class="form-control">
 			</div>
 			<div class="form-group">
-				<label>Email</label>
-				<input type="email" name="email" class="form-control">
-			</div>
-			<div class="form-group">
 				<label>Senha</label>
 				<input type="password" name="password" class="form-control">
 			</div>
@@ -32,8 +28,7 @@
 					<th>#</th>
 					<th>Nome</th>
 					<th>Usuário</th>
-					<th>Email</th>
-					<th>Tipo</th>
+					<th>Acesso Admin</th>
 					<th>Editar</th>
 					<th>Excluir</th>
 				</tr>
@@ -45,9 +40,8 @@
 					<td>{{ user.nome }}</td>
 					<td>{{ user.usuario }}</td>
 					<td>
-						<a href="#">{{ user.email }}</a>
+						<input type="checkbox">
 					</td>
-					<td>{{ auth.user.admin ? 'Admin' : 'User' }}</td>
 					<td>
 						<a class="btn btn-warning" href="#"><i class="fa fa-edit"></i></a>
 					</td>

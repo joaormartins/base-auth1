@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 10-Jul-2020 às 17:58
+-- Generation Time: 10-Jul-2020 às 18:44
 -- Versão do servidor: 5.7.23
 -- versão do PHP: 7.2.10
 
@@ -33,7 +33,6 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(100) NOT NULL,
   `usuario` varchar(20) NOT NULL,
-  `email` varchar(255) NOT NULL,
   `senha` varchar(60) NOT NULL,
   `admin` tinyint(1) NOT NULL DEFAULT '0',
   `created_at` timestamp NULL DEFAULT NULL,
@@ -45,8 +44,8 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
 -- Extraindo dados da tabela `usuarios`
 --
 
-INSERT INTO `usuarios` (`id`, `nome`, `usuario`, `email`, `senha`, `admin`, `created_at`, `updated_at`) VALUES
-(1, 'Joao Reis Martins', 'joaomartins', 'joaodrmjr@gmail.com', '$2y$10$fpa4MSoWdcP9CBotl8gMm.CdH1jiOpA2lCogZygXkbyR9TPLh8Rn2', 1, '2020-07-10 18:55:54', '2020-07-10 18:55:54');
+INSERT INTO `usuarios` (`id`, `nome`, `usuario`, `senha`, `admin`, `created_at`, `updated_at`) VALUES
+(1, 'Joao Reis Martins', 'joaomartins', '$2y$10$fpa4MSoWdcP9CBotl8gMm.CdH1jiOpA2lCogZygXkbyR9TPLh8Rn2', 1, '2020-07-10 18:55:54', '2020-07-10 18:55:54');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

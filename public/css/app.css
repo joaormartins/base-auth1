@@ -5,11 +5,6 @@ body {
 	background-color: #F6F6F6;
 }
 
-.cred { color: red; }
-.cblue { color: blue; }
-.cgreen { color: green; }
-
-
 #user_profile .user-info {
 	display: flex;
 }
