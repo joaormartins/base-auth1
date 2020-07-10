@@ -17,8 +17,8 @@ class BaseController extends Controller {
 	public function postLogin($request, $response)
 	{
 		$pass = $this->auth->loginAttemp([
-			"username" => $request->getParam("usuario"),
-			"password" => $request->getParam("senha")
+			"username" => $request->getParam("user"),
+			"password" => $request->getParam("password")
 		]);
 
 		if (!$pass) {

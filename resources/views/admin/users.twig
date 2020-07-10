@@ -4,7 +4,7 @@
 <h3>Gerenciar Usuários</h3>
 <div class="row">
 	<div class="col-md-4">
-		<form class="form" method="post" action="">
+		<form class="form" method="post" action="{{ path_for('admin.users.add') }}">
 			<div class="form-group">
 				<label>Nome</label>
 				<input type="text" name="nome" class="form-control">

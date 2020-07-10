@@ -15,4 +15,10 @@ class AdminController extends Controller {
 		]);
 	}
 
+
+	public function addUser($request, $response)
+	{
+		var_dump("salvando usuario");
+	}
+
 }
