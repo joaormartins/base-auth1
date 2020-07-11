@@ -14,13 +14,3 @@ $app->group("/user", function ($container) use ($app) {
 
 	$app->get("/logout", "BaseController:logout")->setName("auth.logout");
 });
-
-
-$app->group("/admin", function ($container) use ($app) {
-
-
-	$app->get("/users", "AdminController:users")->setName("admin.users");
-
-	$app->post("/users/add", "AdminController:addUser")->setName("admin.users.add");
-
-});

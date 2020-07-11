@@ -5,22 +5,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class User extends Model {
 
-	protected $table = "usuarios";
+	protected $table = "users";
 
 	protected $fillable = [
-		"nome",
-		"usuario",
-		"senha"
+		"name",
+		"user",
+		"password"
 	];
-
-
-	public function changePassword($new)
-	{
-		if (!password_get_info($new)["algo"]) {
-			$new = password_hash($new, PASSWORD_DEFAULT);
-		}
-
-		$this->password = $new;
-		return $this->save();
-	}
 }

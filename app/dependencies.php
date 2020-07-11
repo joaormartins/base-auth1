@@ -49,6 +49,3 @@ $container["view"] = function ($container) use ($app) {
 $container["BaseController"] = function ($container) {
 	return new App\Controllers\BaseController($container);
 };
-$container["AdminController"] = function ($container) {
-	return new App\Controllers\AdminController($container);
-};

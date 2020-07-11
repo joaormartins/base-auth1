@@ -4,9 +4,6 @@ namespace App\Auth;
 use App\Models\User;
 
 class Auth {
-
-	// validacoes em usuario
-	use UserValidations;
 	
 
 	const NONE = 0;
@@ -51,12 +48,12 @@ class Auth {
 			return false;
 		}
 
-		if (!$user = User::where("usuario", $username)->first()) {
+		if (!$user = User::where("user", $username)->first()) {
 			$this->error = "Usuario nao encontrado";
 			return false;
 		}
 
-		if (!password_verify($password, $user->senha)) {
+		if (!password_verify($password, $user->password)) {
 			$this->error = "A senha inserida esta incorreta!";
 			return false;
 		}
