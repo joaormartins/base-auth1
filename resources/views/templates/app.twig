@@ -12,10 +12,18 @@
 
     <!-- //- -->
 	<link rel="stylesheet" type="text/css" href="{{ base_url() }}/css/app.css">
+	<link rel="stylesheet" type="text/css" href="{{ base_url() }}/css/load.css">
 
 	<title>Relatorio de Viagens CMRPM</title>
 </head>
 <body>
+
+<div class="ajax_load">
+	<div class="ajax_load_box">
+		<div class="ajax_load_msg">Carregando...</div>
+		<div class="ajax_load_circle"></div>
+	</div>
+</div>
 
 {% include 'templates/partials/navigation.twig' %}
 
@@ -33,9 +41,9 @@
 <script src="{{ base_url() }}/js/jquery.min.js"></script>
 <!-- bootstrap script CDN -->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="{{ base_url() }}/js/main.js"></script>
 
 {% block scripts %}{% endblock %}
-
 
 </body>
 </html>
