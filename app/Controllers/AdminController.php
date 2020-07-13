@@ -14,4 +14,28 @@ class AdminController extends Controller {
 		]);
 	}
 
+
+	// requisicao AJAX POST
+	public function addUser($request, $response)
+	{
+		$pass = $this->auth->saveUser([
+			"name" => $request->getParam("name"),
+			"user" => $request->getParam("user"),
+			"password" => $request->getParam("password")
+		]);
+		if (!$pass) {
+			return $this->ajaxResponse("message", [
+				"type" => "error",
+				"message" => $this->auth->error
+			]);
+		}
+
+		// mensagem de sucesso que salvou
+		$this->flash->addMessage("success", "Usuário salvo com sucesso");
+		
+		return $this->ajaxResponse("redirect", [
+			"url" => $this->router->pathFor("admin.users")
+		]);
+	}
+
 }

@@ -4,6 +4,8 @@ namespace App\Auth;
 use App\Models\User;
 
 class Auth {
+
+	use UserValids;
 	
 
 	const NONE = 0;

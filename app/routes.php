@@ -18,6 +18,7 @@ $app->group("/user", function ($container) use ($app) {
 
 $app->group("/adm", function ($container) use ($app) {
 
-
+	// gerenciamento dos usuarios
 	$app->get("/users", "AdminController:users")->setName("admin.users");
+	$app->post("/users/add", "AdminController:addUser")->setName("admin.users.add");
 });

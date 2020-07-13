@@ -18,4 +18,9 @@ class Controller {
 			return $this->container->{$param};
 		}
 	}
+
+	public function ajaxResponse($param, array $values)
+	{
+		return json_encode([ $param => $values ]);
+	}
 }
