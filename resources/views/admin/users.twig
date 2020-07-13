@@ -2,6 +2,63 @@
 
 {% block content %}
 <div id="manage_users">
-	Gerenciar usuarios
+	<h3>Gerenciar Usuários</h3>
+
+	<div class="row">
+		<div class="col-md-4">
+			<form class="form" method="post" action="">
+				<div class="form-group">
+					<label>Nome:</label>
+					<input type="text" name="name" class="form-control">
+				</div>
+
+				<div class="form-group">
+					<label>Usuário:</label>
+					<input type="text" name="user" class="form-control">
+				</div>
+
+				<div class="form-group">
+					<label>Senha:</label>
+					<input type="password" name="password" class="form-control">
+				</div>
+
+				<input type="submit" value="Salvar" class="btn btn-primary">
+			</form>
+		</div>
+		<div class="col-md-8">
+			<h4>Usuários:</h4>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Nome</th>
+						<th>Usuário</th>
+						<th>Acesso Admin</th>
+						<th>Editar</th>
+						<th>Excluir</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for user in users %}
+					{% set row_logged = auth.user.id == user.id %}
+					<tr>
+						<td>{{ user.id }}</td>
+						<td>{{ user.name }}</td>
+						<td>{{ user.user }}</td>
+						<td>
+							<input type="checkbox"{{ user.admin ? ' checked' }}{{ row_logged ? ' disabled' }}>
+						</td>
+						<td>
+							<a class="btn btn-warning" href="#"><i class="fa fa-edit"></i></a>
+						</td>
+						<td>
+							<button class="btn btn-danger"{{ row_logged ? ' disabled' }}><i class="fa fa-trash"></i></button>
+						</td>
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</div>
 </div>
 {% endblock %}
