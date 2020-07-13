@@ -23,7 +23,7 @@
                     <ul class="dropdown-menu" aria-labellyed="user_drop">
                         {% if auth.user.admin %}
                         <li>
-                            <a href="#"><i class="fa fa-cog"></i> Gerenciar Usuarios</a>
+                            <a href="{{ path_for('admin.users') }}"><i class="fa fa-cog"></i> Gerenciar Usuarios</a>
                         </li>
                         {% endif %}
                         <li>
