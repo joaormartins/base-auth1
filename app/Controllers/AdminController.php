@@ -38,4 +38,17 @@ class AdminController extends Controller {
 		]);
 	}
 
+
+	public function deleteUser($request, $response, $args)
+	{
+		$del = User::where("id", $args["user_id"])->delete();
+		if ($del) {
+			$this->flash->addMessage("info", "Exclusao Realizada com sucesso!");
+		}else {
+			$this->flash->addMessage("danger", "Erro Inesperado :(");
+		}
+
+		return $response->withRedirect($this->router->pathFor("admin.users"));
+	}
+
 }

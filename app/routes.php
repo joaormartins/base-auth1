@@ -21,4 +21,6 @@ $app->group("/adm", function ($container) use ($app) {
 	// gerenciamento dos usuarios
 	$app->get("/users", "AdminController:users")->setName("admin.users");
 	$app->post("/users/add", "AdminController:addUser")->setName("admin.users.add");
+
+	$app->get("/users/del/{user_id}", "AdminController:deleteUser")->setName("admin.users.del");
 });

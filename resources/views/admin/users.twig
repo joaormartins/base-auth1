@@ -49,7 +49,7 @@
 				<tbody>
 					{% for user in users %}
 					{% set row_logged = auth.user.id == user.id %}
-					<tr>
+					<tr id="row_{{ user.id }}" data-id="{{ user.id }}">
 						<td>{{ user.id }}</td>
 						<td>{{ user.name }}</td>
 						<td>{{ user.user }}</td>
@@ -60,7 +60,7 @@
 							<a class="btn btn-warning" href="#"><i class="fa fa-edit"></i></a>
 						</td>
 						<td>
-							<button class="btn btn-danger"{{ row_logged ? ' disabled' }}><i class="fa fa-trash"></i></button>
+							<a onclick="return confirm('Tem Certeza que deseja excluir? OK para confirmar.');" href="{{ path_for('admin.users.del', { user_id: user.id}) }}" class="btn btn-danger"{{ row_logged ? ' disabled' }}><i class="fa fa-trash"></i></a>
 						</td>
 					</tr>
 					{% endfor %}
