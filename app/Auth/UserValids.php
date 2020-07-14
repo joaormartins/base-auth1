@@ -8,10 +8,18 @@ trait UserValids {
 	// tentativa de salvar o Usuario (edicao e cadastro)
 	public function saveUser(array $params): bool
 	{
+		if (in_array("", $params)) {
+			$this->error = "Preencha todos os campos";
+			return false;
+		}
 
 		$username = $params["user"];
 		if (strlen($username) < 5) {
 			$this->error = "O Campo Usuário deve conter pelo menos 5 caracteres";
+			return false;
+		}
+		if (strlen($username) > 20) {
+			$this->error = "Erro Inesperado";
 			return false;
 		}
 		$passwd = $params["password"];
